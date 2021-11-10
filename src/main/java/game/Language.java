@@ -16,7 +16,7 @@ public class Language {
     }
 
     public static void PlayerRoll(Player player) {
-        System.out.println("\n"+player.PlayerName+", press OK on the keyboard if you want to roll");
+        System.out.println("\n"+player.PlayerName+"press OK on the keyboard if you want to roll");
 
     }
 

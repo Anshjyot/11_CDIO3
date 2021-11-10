@@ -19,6 +19,4 @@ public class Board { // Creating an Array with every property
         properties[12] = new Properties(+650, "Goldmine", "Jackpot, You hit the Goldmine, now its Showtime.");
     }
 
-
-
 }
