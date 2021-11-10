@@ -1,16 +1,22 @@
 package game;
 
-public class Properties {
+public abstract class Properties {
     // variables
+    protected String fieldName;
     private int Outcome;
     private String Field;
     private String Description;
 
-    public Properties(int Outcome, String Field, String Description) // Constructor
-    {
-        this.Outcome = Outcome;
-        this.Field = Field;
-        this.Description = Description;
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public String toString() {
+        return fieldName;
+    }
+
+    public Properties(String fieldName) {
+        this.fieldName = fieldName; // Constructor
     }
 
     public void Arrived(Player p){
