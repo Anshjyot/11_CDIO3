@@ -15,8 +15,11 @@ public abstract class Properties {
         return fieldName;
     }
 
-    public Properties(String fieldName) {
+    public Properties(int Outcome, String Field, String Description, String fieldName) {
         this.fieldName = fieldName; // Constructor
+        this.Outcome = Outcome;
+        this.Field = Field;
+        this.Description = Description;
     }
 
     public void Arrived(Player p){
