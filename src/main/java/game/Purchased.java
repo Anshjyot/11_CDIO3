@@ -5,9 +5,8 @@ public abstract class Purchased extends Properties {
     private int price;
     protected Player owner;
 
-    public Purchased(String fieldName, int price) {
-        super(fieldName);
-        this.price = price;
+    public Purchased(int Outcome, String Field, String Description, String fieldName) {
+        super(Outcome, Field, Description, fieldName);
     }
 
     public int getPrice() {
