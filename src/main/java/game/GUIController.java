@@ -12,18 +12,38 @@ public class GUIController {
 
     public GUIController() { // GUI Field creation
 
-        fields[0] = new GUI_Street("Start", "Good Luck", "The person to hit 3000 first, wins", "+250", Color.RED, Color.BLACK);
-        fields[1] = new GUI_Street("Tower", "+250", "You got the Tower, now make it Shower!", "+250", Color.darkGray, Color.BLACK);
-        fields[2] = new GUI_Street("Crater", "-100", "You fell in the Crater, Sorry, See you later", "+250", Color.lightGray, Color.BLACK);
-        fields[3] = new GUI_Street("Palace gates", "+100", "You arrived at the Palace Gates, now you feel like Bill Gates", "+250", Color.CYAN, Color.BLACK);
-        fields[4] = new GUI_Street("Cold Desert", "-20", "You are stranded in the Cold Desert, now lost 20 in the Blizzard", "+250", Color.yellow, Color.BLACK);
-        fields[5] = new GUI_Street("Walled city", "+180", "You just arrived at Walled City, Splash som cash, go get Litty", "+250", Color.blue, Color.BLACK);
-        fields[6] = new GUI_Street("Monastery", "0", "You arrived at the Monastery, nothing happened, its not that Scary", "+250", Color.gray, Color.BLACK);
-        fields[7] = new GUI_Street("Black Cave", "-70", "You saw the Black Cave, you cut yourself when trying to Shave", "+250", Color.black, Color.white);
-        fields[8] = new GUI_Street("Huts in the mountain", "+60", "You arrived at the Huts in the Mountain, you found some money in the Fountain", "+250", Color.white, Color.BLACK);
-        fields[9] = new GUI_Street("The Werewall", "-80", "You got to the werewolf wall, you heard a haul, you made a withdrawl, try again", "+250", Color.PINK, Color.BLACK);
-        fields[10] = new GUI_Street("The pit", "-50", "Oh Shit, You fell in the Pit", "+250", Color.MAGENTA, Color.BLACK);
-        fields[11] = new GUI_Street("Goldmine", "+650", "Jackpot, You hit the Goldmine, now its Showtime", "+250", Color.orange, Color.BLACK);
+        fields[1] = new GUI_Street(+2, "Go!", "You got the Tower, now make it Shower!", "");
+        fields[2] = new GUI_Street(0, "Chance", "You got the Tower, now make it Shower!", "");
+        fields[3] = new GUI_Street(+1, "Balloon Stand", "You got the Tower, now make it Shower!", "");
+        fields[4] = new GUI_Street(+1, "Cotton Candy", "You fell in the Crater, Sorry, See you later.", "");
+        fields[5] = new GUI_Street(+100, "Chance", "You arrived at the Palace Gates, now you feel like Bill Gates.", "");
+        fields[6] = new GUI_Street(-20, "Yellow Line Railroad", "You are stranded in the Cold Desert, now lost 20 in the Blizzard.", "");
+        fields[7] = new GUI_Street(+180, "Puppet Show", "You just arrived at Walled City, Splash some cash, go get Litty.", "");
+        fields[8] = new GUI_Street(0, "Magic Show", "You arrived at the Monastery, nothing happened, its not that Scary.", "");
+        fields[9] = new GUI_Street(-70, "Pay $2 to see the fireworks", "You saw the Black Cave, go buy a plaster, you cut yourself when trying to Shave.", "");
+        fields[10] = new GUI_Street(+60, "Chance", "You arrived at the Huts in the Mountain, you found some money in the Fountain", "");
+        fields[11] = new GUI_Street(-80, "Rest Rooms", "You got to the werewolf wall, you heard a haul, you made a withdrawal, try again ;)!", "");
+        fields[12] = new GUI_Street(-50, "Merry-Go-Round", "Oh Shit, You fell in the Pit.", "");
+        fields[13] = new GUI_Street(+650, "Paddle Boats", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[14] = new GUI_Street(+650, "Green Line Railroad", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[15] = new GUI_Street(+650, "Water Slide", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[16] = new GUI_Street(+650, "Miniature Golf", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[17] = new GUI_Street(+650, "Uncle Pennybag's Loose Change", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[18] = new GUI_Street(+650, "Chance", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[19] = new GUI_Street(+650, "Video Arcade", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[20] = new GUI_Street(+650, "Haunted House", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[21] = new GUI_Street(+650, "Chance", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[22] = new GUI_Street(+650, "Blue Line Railroad", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[23] = new GUI_Street(+650, "Helicopter Ride", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[24] = new GUI_Street(+650, "Pony Ride", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[25] = new GUI_Street(+650, "Pay $2 to see the water show", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[26] = new GUI_Street(+650, "Chance", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[27] = new GUI_Street(+650, "Pay $3 To Take The Tramway To The Rest Rooms", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[28] = new GUI_Street(+650, "Bumper Cars", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[29] = new GUI_Street(+650, "Ferris Wheel", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[30] = new GUI_Street(+650, "Red Line Railroad", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[31] = new GUI_Street(+650, "Loop The Loop", "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        fields[32] = new GUI_Street(+650, "Roller Coaster", "s","s");
 
         board = new GUI(fields);
 
