@@ -1,6 +1,6 @@
 package game;
 
-public abstract class Properties {
+public class Properties {
     // variables
     protected String fieldName;
     private int Outcome;
