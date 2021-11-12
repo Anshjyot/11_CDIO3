@@ -1,16 +1,16 @@
 package game;
 
 public class JuniorMonopolyController {
-
-    Board board = new Board();
+    Board board;
 
     static Player player1 = new Player();
     static Player player2 = new Player();
     private GUIController gui = new GUIController();
 
     public static void main(String[] args) {
-
         JuniorMonopolyController game = new JuniorMonopolyController();
+        game.board = new Board(new Player[] {player1, player2}, game.gui);
+
         game.PlayerName();
         game.setupPlayer();
 
@@ -61,7 +61,7 @@ public class JuniorMonopolyController {
 
         gui.MoveCar(player,cup.sum()-1);
 
-        Properties LandOn = board.properties[cup.sum()];
+        Square LandOn = board.properties[cup.sum()];
         LandOn.Arrived(player);
 
         if (LandOn == board.properties[10]) { // if you land on property 10, you get another chance
