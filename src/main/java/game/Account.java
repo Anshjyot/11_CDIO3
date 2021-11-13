@@ -1,9 +1,9 @@
 package game;
 
-public class Bank {
+public class Account {
     public int amount;
 
-    public Bank(int a) {
+    public Account(int a) {
         amount = a;
     }
 

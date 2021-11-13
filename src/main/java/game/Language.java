@@ -25,18 +25,18 @@ public class Language {
 
     }
 
-    public static void Arrived(String name, String description, int outcome, Bank bank){
+    public static void Arrived(String name, String description, int outcome, Account account){
         // Using the constructor from properties class to add the outcome of the dice throw with the system.out.println
 
         System.out.println("You landed on: "+name);
         System.out.println(description);
         System.out.println("The effect on your bank-account: "+ outcome);
-        if (bank.amount < 0) {
-            bank.amount = 0;
-            System.out.println("\n"+TEXT_RED +"Your bank balance is now: " + bank.amount+ TEXT_RESET);
+        if (account.amount < 0) {
+            account.amount = 0;
+            System.out.println("\n"+TEXT_RED +"Your bank balance is now: " + account.amount+ TEXT_RESET);
         }
         else {
-            System.out.println("\n" + TEXT_RED + "Your bank balance is now: " + bank.amount + TEXT_RESET);
+            System.out.println("\n" + TEXT_RED + "Your bank balance is now: " + account.amount + TEXT_RESET);
         }
     }
 

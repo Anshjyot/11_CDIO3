@@ -6,11 +6,11 @@ public class Player {
 
     String PlayerName;
     GUI_Player GUIplayer;
-    Bank bank;
+    Account bank;
     int currentField = 0;
 
     public Player() {// Create constructor, returns nothing
-        bank  = new Bank(1000);
+        bank  = new Account(1000);
     }
 
     public String setPlayerName(String PlayerName) {// This will be used to get the PlayerName
@@ -23,7 +23,7 @@ public class Player {
         return PlayerName;
     }
     // Used to get bank value
-    public Bank getBank(){
+    public Account getBank(){
 
         return bank;
     }
