@@ -23,8 +23,8 @@ public class JuniorMonopolyController {
             game.gui.board.showMessage("Throw Dice");
             game.Player(player1);
 
-            if (player1.bank.amount >= 3000) {
-                Language.PlayerWon(player1);
+            if (player1.bank.amount <= 0) {
+                Language.PlayerWon(player2);
                 System.exit(0);
             }
 
@@ -32,8 +32,8 @@ public class JuniorMonopolyController {
             game.gui.board.showMessage("Throw Dice");
             game.Player(player2);
 
-            if (player2.bank.amount >= 3000) {
-                Language.PlayerWon(player2);
+            if (player2.bank.amount <= 0) {
+                Language.PlayerWon(player1);
                 System.exit(0);
             }
             Language.PlayerRoll(player3);
