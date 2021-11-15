@@ -5,11 +5,13 @@ public class JuniorMonopolyController {
 
     static Player player1 = new Player();
     static Player player2 = new Player();
+    static Player player3 = new Player();
+    static Player player4 = new Player();
     private GUIController gui = new GUIController();
 
     public static void main(String[] args) {
         JuniorMonopolyController game = new JuniorMonopolyController();
-        game.board = new Board(new Player[] {player1, player2}, game.gui);
+        game.board = new Board(new Player[]{player1, player2, player3, player4}, game.gui);
 
         game.PlayerName();
         game.setupPlayer();
@@ -34,9 +36,18 @@ public class JuniorMonopolyController {
                 Language.PlayerWon(player2);
                 System.exit(0);
             }
+            Language.PlayerRoll(player3);
+            game.gui.board.showMessage("Throw Dice");
+            game.Player(player3);
+
+            if (player3.bank.amount >= 3000) {
+                Language.PlayerWon(player3);
+                System.exit(0);
+
+            }
+
         }
     }
-
 
     //Player name.
 
