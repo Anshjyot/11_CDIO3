@@ -59,8 +59,8 @@ public class JuniorMonopolyController {
         gui.GUIDice(cup);
 
         Language.PlayerRolled(player, cup);
-
-        gui.MoveCar(player,cup.sum()-1);
+// todo: Husk at være opmærksom på det skal opdateres når spilleren kan rykke hele vejen rundt på brættet
+        gui.MoveCar(player,cup.sum());
 
         Square LandOn = board.properties[cup.sum()];
         LandOn.Arrived(player);
