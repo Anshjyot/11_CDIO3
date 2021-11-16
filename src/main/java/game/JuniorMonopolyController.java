@@ -2,66 +2,56 @@ package game;
 
 public class JuniorMonopolyController {
     Board board;
-
-    static Player player1 = new Player();
-    static Player player2 = new Player();
-    static Player player3 = new Player();
-    static Player player4 = new Player();
-    private GUIController gui = new GUIController();
-
-    public static void main(String[] args) {
-        JuniorMonopolyController game = new JuniorMonopolyController();
-        game.board = new Board(new Player[]{player1, player2, player3, player4}, game.gui);
-
-        game.PlayerName();
-        game.setupPlayer();
-
-        while (true) { //  infinite loop
-            // uses methods from Language class in correlation with system.out.println
-
-            Language.PlayerRoll(player1);
-            game.gui.board.showMessage("Throw Dice");
-            game.Player(player1);
-
-            if (player1.bank.amount <= 0) {
-                Language.PlayerWon(player2);
-                System.exit(0);
-            }
-
-            Language.PlayerRoll(player2);
-            game.gui.board.showMessage("Throw Dice");
-            game.Player(player2);
-
-            if (player2.bank.amount <= 0) {
-                Language.PlayerWon(player1);
-                System.exit(0);
-            }
-            Language.PlayerRoll(player3);
-            game.gui.board.showMessage("Throw Dice");
-            game.Player(player3);
-
-            if (player3.bank.amount >= 3000) {
-                Language.PlayerWon(player3);
-                System.exit(0);
-
-            }
+    private Player[] players;
+    /**
+     * @author Sofie
+    * @param language
+    * @param guiController
+    */
+    //todo Skal laves til et array
+    public void createPlayer (Language language, GUIController guiController){
+        int numberOfPlayers = guiController.getIntegerInput(language.getText(2,2),2, 4);
+        players = new Player [numberOfPlayers];
+        for(int i = 0;i<numberOfPlayers;i++){
+            String playername = guiController.getStringInput(language.getText(2,3));
+            players[i]= new Player(playername);
 
         }
     }
 
-    //Player name.
+    private GUIController gui = new GUIController();
 
-    public void PlayerName() {
+    public void runGame() {
+        board = new Board(players, gui);
+        int turn = 0;
 
-        player1.setPlayerName( gui.GUIName());
-        player2.setPlayerName( gui.GUIName());
-        Language.Intro(player1, player2);
+        while (true) { //  infinite loop
+            // uses methods from Language class in correlation with system.out.println
 
-    }
+            Language.PlayerRoll(players[turn]);
+            gui.board.showMessage("Throw Dice");
+            playerTurn(players[turn]);
+
+          //metode der returnerer true eller en spilelr som har flest penge
+            if (checkWinner() != null)
+                //game end
+                System.exit(0);
+            }
+        // Skal lige ændres da den altid returnerer null.. værdien skal ændres ovenover.
+           // turn = (turn + 1) % players.length;
+        }
+        public Player checkWinner() {
+        //if (plaerbalance == 0)
+        //  checking all player and find the richest and return him
+        // return richestPlayer
+        //else
+        //return null
+            return null;
+        }
 
     //Player turn
 
-    public void Player(Player player) {
+    public void playerTurn(Player player) {
 
         Cup cup = new Cup();
 
@@ -83,12 +73,8 @@ public class JuniorMonopolyController {
         }
         gui.GUIBalance(player);
 
+      }
+
     }
 
-    //Inserts the player-figures in the gui
-
-    public void setupPlayer() {
-        gui.addPlayers(new Player[]{player1, player2});
-    }
-}
 

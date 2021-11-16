@@ -16,7 +16,7 @@ public class Language {
     }
 
     public static void PlayerRoll(Player player) {
-        System.out.println("\n"+player.PlayerName+" press OK on the keyboard if you want to roll");
+        System.out.println("\n"+player.playerName +"press OK on the keyboard if you want to roll");
 
     }
 
@@ -41,7 +41,7 @@ public class Language {
     }
 
     public static void PlayerWon(Player player) {
-        System.out.println("\n"+player.PlayerName+TEXT_CYAN+" WON!"+TEXT_RESET);
+        System.out.println("\n"+player.playerName +TEXT_CYAN+" WON!"+TEXT_RESET);
     }
-
+    public String getText(int language,int phrase) {return ".";}
 }
