@@ -1,10 +1,12 @@
 package game;
 
+import java.util.List;
+
 public class Board { // Creating an Array with every property
 
     Square [] properties = new Square[32];
 
-    public Board(Player[] players, GUIController controller)
+    public Board(List<Player> players, GUIController controller)
     {
         properties[0] = new Properties(+2, "You got the Tower, now make it Shower!", "");
         properties[1] = new Chance( "Chance", players, controller);

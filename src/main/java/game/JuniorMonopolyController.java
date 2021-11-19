@@ -1,8 +1,12 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class JuniorMonopolyController {
     Board board;
-    private Player[] players;
+    private List<Player> players = new ArrayList<Player>();
     /**
      * @author Sofie
     * @param language
@@ -11,11 +15,15 @@ public class JuniorMonopolyController {
     //todo Skal laves til et array
     public void createPlayer (Language language, GUIController guiController){
         int numberOfPlayers = guiController.getIntegerInput(language.getText(2,2),2, 4);
-        players = new Player [numberOfPlayers];
+
         for(int i = 0;i<numberOfPlayers;i++){
             String playername = guiController.getStringInput(language.getText(2,3));
-            players[i]= new Player(playername);
+            players.add(new Player(playername));
+        }
 
+        gui.createPlayer(players);
+        for (Player player : players) {
+            player.toString();
         }
     }
 
@@ -24,13 +32,17 @@ public class JuniorMonopolyController {
     public void runGame() {
         board = new Board(players, gui);
         int turn = 0;
+        Language language = new Language();
+        createPlayer(language, gui);
 
         while (true) { //  infinite loop
             // uses methods from Language class in correlation with system.out.println
 
-            Language.PlayerRoll(players[turn]);
+            Language.PlayerRoll(players.get(turn)); //kan slettes??
             gui.board.showMessage("Throw Dice");
-            playerTurn(players[turn]);
+            playerTurn(players.get(turn));
+
+            turn = (turn + 1) % players.size();
 
           //metode der returnerer true eller en spilelr som har flest penge
             if (checkWinner() != null)
@@ -38,7 +50,6 @@ public class JuniorMonopolyController {
                 System.exit(0);
             }
         // Skal lige ændres da den altid returnerer null.. værdien skal ændres ovenover.
-           // turn = (turn + 1) % players.length;
         }
         public Player checkWinner() {
         //if (plaerbalance == 0)
@@ -52,7 +63,6 @@ public class JuniorMonopolyController {
     //Player turn
 
     public void playerTurn(Player player) {
-
         Cup cup = new Cup();
 
         cup.rolling();
@@ -75,6 +85,7 @@ public class JuniorMonopolyController {
 
       }
 
-    }
+
+}
 
 

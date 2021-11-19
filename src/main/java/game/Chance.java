@@ -1,15 +1,17 @@
 package game;
 
+import java.util.List;
+
 public class Chance extends Square {
 
    // int outcome;
-    private Player[] players;
+    private List<Player> players;
     private GUIController controller;
 
-    public Chance (String fieldName, Player[] players, GUIController controller){
+    public Chance (String fieldName, List<Player> players, GUIController controller){
         super(fieldName);
-        this.players = players;
         this.controller = controller;
+        this.players = players;
     }
 
     @Override

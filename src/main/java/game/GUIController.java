@@ -48,7 +48,7 @@ public class GUIController {
         board = new GUI(fields);
 
     }
- /*
+/*
     public void addPlayers(Player[] players) { // Creates the player in the GUI
         players[0].guiplayer = new GUI_Player(players[0].playerName, players[0].bank.amount, new GUI_Car(Color.RED, Color.RED, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL));
         players[1].guiplayer = new GUI_Player(players[1].playerName, players[1].bank.amount, new GUI_Car(Color.BLUE, Color.BLUE, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL));
@@ -60,8 +60,9 @@ public class GUIController {
 
     public void MoveCar(Player player, int fieldId) { // Makes the players/cars movable in GUI
         fields[player.currentField].setCar(player.guiplayer, false);
-        fields[fieldId].setCar(player.guiplayer, true);
-        player.currentField = fieldId;
+        player.currentField = (player.currentField + fieldId) % fields.length;
+        fields[player.currentField].setCar(player.guiplayer, true);
+        
     }
 
     public void GUIBalance(Player player){ // updates the balance for the players after each dice throw in GUI
@@ -77,15 +78,34 @@ public class GUIController {
     public String GUIName(){ // Makes a Insert your name button in GUI
         return board.getUserString("Insert your name");
     }
+    //public String {}
 
-    public int getIntegerInput(String msg, int min, int max) {return board.getUserInteger(msg,min,max); }
+
+    public int getIntegerInput(String msg, int min, int max) {
+
+        String response = board.getUserButtonPressed( msg,
+                "2 Players",
+                "3 Players", "4 Players"
+        );
+        if(response.equals("2 Players")) {
+            return 2;
+        } else if(response.equals("3 Players")) {
+            return 3;
+        } else {
+            return 4;
+        }
+
+
+        //return board.getUserInteger(msg,min,max);
+    }
 
     public String getStringInput (String msg) {return board.getUserString(msg); }
-    public void createPlayer (Player[] playerList){
-        players = new GUI_Player[playerList.length];
-        for (int i = 0; i < playerList.length; i++) {
-            players[i] = new GUI_Player(playerList[i].playerName);
+    public void createPlayer (java.util.List<Player> playerList){
+        players = new GUI_Player[playerList.size()];
+        for (int i = 0; i < playerList.size(); i++) {
+            players[i] = new GUI_Player(playerList.get(i).playerName);
             board.addPlayer(players[i]);
+            playerList.get(i).guiplayer = players[i];
         }
 
     }

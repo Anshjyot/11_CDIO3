@@ -20,7 +20,6 @@ public class Player {
     }
     //Used to get Playername
     public String toString (){
-
         return playerName;
     }
     // Used to get bank value
