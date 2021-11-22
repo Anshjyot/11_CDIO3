@@ -33,7 +33,7 @@ public class Board { // Creating an Array with every property
         properties[22] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
         properties[23] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
         properties[24] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[25] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
+        properties[25] = new Chance("Chance", players, controller);
         properties[26] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
         properties[27] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
         properties[28] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
