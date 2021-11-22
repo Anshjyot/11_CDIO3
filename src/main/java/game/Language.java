@@ -43,5 +43,5 @@ public class Language {
     public static void PlayerWon(Player player) {
         System.out.println("\n"+player.playerName +TEXT_CYAN+" WON!"+TEXT_RESET);
     }
-    public String getText(int language,int phrase) {return ".";}
+    public String getText(int language,int phrase) {return "Junior" + " Monopoly";}
 }
