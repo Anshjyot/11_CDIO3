@@ -19,8 +19,8 @@ public class GUIController {
         fields[3] = new GUI_Street("Cotton Candy", "You got the Tower, now make it Shower!","", "+82",Color.pink, Color.BLACK);
         fields[4] = new GUI_Street("Chance", "You got the Tower, now make it Shower!","", "+82",Color.yellow, Color.BLACK);
         fields[5] = new GUI_Street("Yellow Line Railroad", "You got the Tower, now make it Shower!","", "+82",Color.yellow, Color.YELLOW);
-        fields[6] = new GUI_Street("Puppet Show", "You got the Tower, now make it Shower!","", "+82",Color.gray, Color.BLACK);
-        fields[7] = new GUI_Street("Magic Show", "You got the Tower, now make it Shower!","", "+82",Color.gray, Color.black);
+        fields[6] = new GUI_Street("Puppet Show", "You got the Tower, now make it Shower!","", "+82",Color.darkGray, Color.BLACK);
+        fields[7] = new GUI_Street("Magic Show", "You got the Tower, now make it Shower!","", "+82",Color.darkGray, Color.black);
         fields[8] = new GUI_Street("Pay $2 to see the fireworks", "You got the Tower, now make it Shower!","", "+82",Color.white, Color.BLACK);
         fields[9] = new GUI_Street("Chance", "You got the Tower, now make it Shower!","", "+82",Color.yellow, Color.BLACK);
         fields[10] = new GUI_Street("Rest Rooms", "You got the Tower, now make it Shower!","", "+82",Color.MAGENTA, Color.BLACK);
@@ -35,17 +35,17 @@ public class GUIController {
         fields[19] = new GUI_Street("Haunted House", "You got the Tower, now make it Shower!","", "+82",Color.magenta, Color.BLACK);
         fields[20] = new GUI_Street("Chance", "You got the Tower, now make it Shower!","", "+82",Color.yellow, Color.BLACK);
         fields[21] = new GUI_Street("Blue Line Railroad", "You got the Tower, now make it Shower!","", "+82",Color.BLUE, Color.BLACK);
-        fields[22] = new GUI_Street("Helicopter Ride", "You got the Tower, now make it Shower!","", "+82",Color.GREEN, Color.BLACK);
-        fields[23] = new GUI_Street("Pony Ride","You got the Tower, now make it Shower!","", "+82",Color.GREEN, Color.BLACK);
+        fields[22] = new GUI_Street("Helicopter Ride", "You got the Tower, now make it Shower!","", "+82",Color.CYAN, Color.BLACK);
+        fields[23] = new GUI_Street("Pony Ride","You got the Tower, now make it Shower!","", "+82",Color.CYAN, Color.BLACK);
         fields[24] = new GUI_Street("Pay $2 to see the water show", "You got the Tower, now make it Shower!","", "+82",Color.WHITE, Color.BLACK);
         fields[25] = new GUI_Street("Chance", "You got the Tower, now make it Shower!","", "+82",Color.YELLOW, Color.BLACK);
         fields[26] = new GUI_Street("Restrooms","Pay $3 To Take The Tramway To The Rest Rooms","You got the Tower, now make it Shower!","+82",Color.RED, Color.BLACK);
-        fields[27] = new GUI_Street("Bumper Cars","You got the Tower, now make it Shower!","", "+82",Color.CYAN, Color.BLACK);
-        fields[28] = new GUI_Street("Ferris Wheel", "You got the Tower, now make it Shower!","", "+82",Color.CYAN, Color.BLACK);
+        fields[27] = new GUI_Street("Bumper Cars","You got the Tower, now make it Shower!","", "+82",Color.GREEN, Color.BLACK);
+        fields[28] = new GUI_Street("Ferris Wheel", "You got the Tower, now make it Shower!","", "+82",Color.GREEN, Color.BLACK);
         fields[29] = new GUI_Street("Red Line Railroad", "You got the Tower, now make it Shower!","", "+82",Color.RED, Color.BLACK);
-        fields[30] = new GUI_Street("Loop The Loop", "You got the Tower, now make it Shower!","", "+82",Color.ORANGE, Color.BLACK);
-        fields[31] = new GUI_Street("Roller Coaster","You got the Tower, now make it Shower!","", "+82",Color.ORANGE, Color.BLACK);
-        board = new GUI(fields);
+        fields[30] = new GUI_Street("Loop The Loop", "You got the Tower, now make it Shower!","", "+82",Color.BLUE, Color.BLACK);
+        fields[31] = new GUI_Street("Roller Coaster","You got the Tower, now make it Shower!","", "+82",Color.BLUE, Color.BLACK);
+        board = new GUI(fields, Color.GRAY);
 
     }
 /*
