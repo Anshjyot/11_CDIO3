@@ -75,13 +75,13 @@ public class JuniorMonopolyController {
         int playerList = guiController.getPlayerList();
 
         if (playerList == 2) {
-            startBalance = 50;
+            startBalance = 35;
         }
         if (playerList == 3) {
-            startBalance = 50;
+            startBalance = 35;
         }
         if (playerList == 4) {
-            startBalance = 50;
+            startBalance = 35;
         }
 
         this.players = new Player[playerList];
