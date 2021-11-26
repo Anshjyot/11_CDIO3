@@ -50,24 +50,26 @@ public class JuniorMonopolyController {
     }
 
     private void Winner(int player) {
-        int winnerBalance = 0;
+        int loserBalance = 0;
         List<String> winnerName = new ArrayList<String>();
 
         if (players[player].getAccount().getBalance() < 0) {
-            noWinner = false;
             for (int i = 0; i < players.length; i++) {
-                if (players[i].getAccount().getBalance() > winnerBalance) {
-                    winnerName.clear();
+                if (players[i].getAccount().getBalance() > loserBalance) {
                     winnerName.add(players[i].getPlayerName());
-                    winnerBalance = players[i].getAccount().getBalance();
+                    //winnerBalance = players[i].getAccount().getBalance();
 
-                } else if (players[i].getAccount().getBalance() == winnerBalance) {
-                    winnerName.add(players[i].getPlayerName());
-                    winnerBalance = players[i].getAccount().getBalance();
+                //} else if (players[i].getAccount().getBalance() == winnerBalance) {
+                    //winnerName.add(players[i].getPlayerName());
+                    //winnerBalance = players[i].getAccount().getBalance();
                 }
             }
-            guiController.getWinnerMessage(winnerName);
-            System.exit(0);
+
+            if (winnerName.size() == 1) {
+                guiController.getWinnerMessage(winnerName);
+                System.exit(0);
+            }
+
         }
     }
 

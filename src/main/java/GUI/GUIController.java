@@ -32,7 +32,10 @@ public class GUIController {
 
     public int setDice() {
         gui.getUserButtonPressed("Throw Dice", "Throw");
-        gui.setDie(dice.getDice());
+        int x = (int)(Math.random()*7)+2;
+        int y = (int)(Math.random()*7)+2;
+        int rotation = (int)(Math.random()*360);
+        gui.setDice(dice.getDice(),rotation,x,y,dice.getDice(),rotation, x,y); // Only one dice visible on the board
         dice.ThrowDice();
         return dice.getDice();
     }
@@ -45,6 +48,8 @@ public class GUIController {
             gui.addPlayer(this.guiPlayers[i]);
         }
     }
+
+
     public void AddCar(int position, int player) { //Sætter en bil på brættet, når brugeren har indtastet navn
         board.getField(position).setCar(guiPlayers[player], true);
     }
