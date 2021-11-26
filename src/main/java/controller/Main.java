@@ -1,7 +1,5 @@
 package controller;
 
-import controller.JuniorMonopolyController;
-
 public class Main {
 
     public static void main(String[] args) {

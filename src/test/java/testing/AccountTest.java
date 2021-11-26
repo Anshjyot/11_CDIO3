@@ -1,4 +1,5 @@
-/* package testing;
+package testing;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import game.Account;
@@ -8,22 +9,24 @@ public class AccountTest {
 
     public AccountTest() { }
 
-    /**
-     * Testing the add-amount method in the Bank class, adding an amount to the overall amount.
 
+    /**
+     * Testing the setBalance method
+     */
 
     @Test
-    public void testingAddMethod() {
-        System.out.println("addEffect");
-        int number = 2000;
+    public void testingSetBalance() {
+        System.out.println("Set Balance");
         Account amount = new Account(0);
-        int expectingResult = 2000;
-        int actualResult = amount.add(number);
+        amount.setBalance(1000);
+        int expectingResult = 1000;
+        int actualResult = amount.getBalance();
         assertEquals(expectingResult, actualResult);
     }
 
     /**
      * Testing the methodArrived & Bank, the amount/balance cant be negative - no matter what the withdrawal is
+     */
 
     @Test
     public void TestingArrived(){
@@ -41,19 +44,8 @@ public class AccountTest {
 
     }
 
-    /**
-     * Testing the toString method in the the Bank class, the method should return the "amount"
 
-    @Test
-    public void testingToStringMethod() {
-        Account amount = new Account(1000);
-        System.out.println("\n");
-        String expectingResult = "(1000)";
-        String actualResult = amount.toString();
-        assertEquals(expectingResult, actualResult);
-        System.out.println(amount);
-    }
 
 }
 
-*/
+
