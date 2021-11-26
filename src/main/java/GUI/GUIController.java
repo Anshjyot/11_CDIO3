@@ -59,7 +59,7 @@ public class GUIController {
     }
 
 
-    public void AddCar(int position, int player) { //Sætter en bil på brættet, når brugeren har indtastet navn
+    public void AddCar(int position, int player) { //Adds car
         board.getField(position).setCar(guiPlayers[player], true);
     } // Adds the car to the GUI
     public void RemoveCar(int position2, int player2) {
