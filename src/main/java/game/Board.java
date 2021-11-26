@@ -1,16 +1,24 @@
 package game;
 
 import java.awt.Color;
+import java.util.List;
 
+import GUI.GUIController;
 import gui_fields.*;
-import gui_main.GUI;
 
 public class Board {
     GUI_Field[] fields = new GUI_Field[32];
-    GUI board;
+    Square[] squares = new Square[32];
+    public Board(List<Player> players, GUIController controller) {
+        CreateStreets(players, controller);
+    }
 
     public GUI_Field getField(int i) {
         return fields[i];
+    }
+
+    public Square getSquare(int i) {
+        return squares[i];
 
     }
 
@@ -59,6 +67,47 @@ public class Board {
         return fields;
     }
 
+    public void CreateStreets(List<Player> players, GUIController controller) {
+        squares[0] = new StartSquare("START");
+        squares[1] = new ChanceSquare("?", players, controller);
+        squares[2] = new OwnedProperty("Balloon Stand", 2, 1,controller);
+        squares[3] = new OwnedProperty("Cotton Candy", 2, 1,controller);
+        squares[4] = new ChanceSquare("?", players, controller);
+        squares[5] = new OwnedProperty("Yellow Line Railroad", 2, 1,controller);
+        squares[6] = new OwnedProperty("Puppet Show", 2, 1,controller);
+        squares[7] = new OwnedProperty("Magic Show", 2, 1,controller);
 
+        squares[8] = new VisitJailSquare("Jail Visit");
 
+        squares[9] = new ChanceSquare("?", players, controller);
+        squares[10] = new OwnedProperty("Rest Rooms", 2, 1,controller);
+        squares[11] = new OwnedProperty("Merry-Go-Round", 2, 1,controller);
+        squares[12] = new OwnedProperty("Paddle Boats",2, 1,controller);
+        squares[13] = new OwnedProperty("Green Line Railroad", 2, 1,controller);
+        squares[14] = new OwnedProperty("Water Slide", 2, 1,controller);
+        squares[15] = new OwnedProperty("Miniature Golf",2, 1,controller);
+        squares[16] = new OwnedProperty("Uncle Pennybag's Loose Change", 2, 1,controller);
+        squares[17] = new ChanceSquare("?", players, controller);
+        squares[18] = new OwnedProperty("Video Arcade", 2, 1,controller);
+        squares[19] = new OwnedProperty("Haunted House", 2, 1,controller);
+        squares[20] = new ChanceSquare("?", players, controller);
+        squares[21] = new OwnedProperty("Blue Line Railroad", 2, 1,controller);
+        squares[22] = new OwnedProperty("Helicopter Ride", 2, 1,controller);
+        squares[23] = new OwnedProperty("Pony Ride", 2, 1,controller);
+
+        squares[24] = new JailSquare("JAIL",controller);
+
+        squares[25] = new ChanceSquare("?", players, controller);
+        squares[26] = new OwnedProperty("Go to Rest rooms", 2, 1,controller);
+        squares[27] = new OwnedProperty("Bumper Cars", 2, 1,controller);
+        squares[28] = new OwnedProperty("Ferris Wheel", 2, 1,controller);
+        squares[29] = new OwnedProperty("Red Line Railroad", 2, 1,controller);
+        squares[30] = new OwnedProperty("Loop The Loop", 2, 1,controller);
+        squares[31] = new OwnedProperty("Roller Coaster", 2, 1,controller);
+
+    }
 }
+
+
+
+

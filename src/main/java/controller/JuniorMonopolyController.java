@@ -2,7 +2,6 @@ package controller;
 
 import GUI.GUIController;
 import game.Board;
-import game.Chance;
 import game.Player;
 
 import java.util.*;
@@ -11,38 +10,41 @@ import java.util.List;
 public class JuniorMonopolyController {
 
     private final int StartField = 0;
-    private GUIController guiController;
-    private Player[] players;
+    private GUIController guiController = new GUIController();
     private int startBalance;
     private boolean noWinner = true;
-    Chance ChanceCard = new Chance();
-    Board board = new Board();
+    List<Player> players = new ArrayList<>();
+    Board board;
 
 
     public void playGame() {
-        this.guiController = new GUIController(board);
+        board = new Board(players, guiController);
+        this.guiController.initializeBoard(board);
         NumberOfPlayers();
         gameLoop();
     }
 
     private void gameLoop() {
         while (noWinner) {
-            for (int i = 0; i < players.length; i++) {
+            for (int i = 0; i < players.size(); i++) {
                 int faceValue = guiController.setDice();
 
-                guiController.RemoveCar(players[i].getPosition(), i);
+                guiController.RemoveCar(players.get(i).getPosition(), i);
 
-                if (players[i].getPosition() + faceValue > 31) {
+                if (players.get(i).getPosition() + faceValue > 31) {
                     StartField(i);
-                    players[i].setPosition(players[i].getPosition() + faceValue - 32);
+                    players.get(i).setPosition(players.get(i).getPosition() + faceValue - 32);
 
                 } else {
-                    players[i].setPosition(players[i].getPosition() + faceValue);
+                    players.get(i).setPosition(players.get(i).getPosition() + faceValue);
                 }
 
-                guiController.AddCar(players[i].getPosition(), i);
+                guiController.AddCar(players.get(i).getPosition(), i);
                 FieldOutcome(i);
-                guiController.setNewBalance(i, players[i].getAccount().getBalance());
+
+                for (Player player: players) {
+                    guiController.setNewBalance(player.getIndex(), player.getAccount().getBalance());
+                }
 
                 Winner(i);
             }
@@ -53,15 +55,11 @@ public class JuniorMonopolyController {
         int loserBalance = 0;
         List<String> winnerName = new ArrayList<String>();
 
-        if (players[player].getAccount().getBalance() < 0) {
-            for (int i = 0; i < players.length; i++) {
-                if (players[i].getAccount().getBalance() > loserBalance) {
-                    winnerName.add(players[i].getPlayerName());
-                    //winnerBalance = players[i].getAccount().getBalance();
+        if (players.get(player).getAccount().getBalance() < 0) {
+            for (int i = 0; i < players.size(); i++) {
+                if (players.get(i).getAccount().getBalance() > loserBalance) {
+                    winnerName.add(players.get(i).getPlayerName());
 
-                //} else if (players[i].getAccount().getBalance() == winnerBalance) {
-                    //winnerName.add(players[i].getPlayerName());
-                    //winnerBalance = players[i].getAccount().getBalance();
                 }
             }
 
@@ -86,145 +84,26 @@ public class JuniorMonopolyController {
             startBalance = 35;
         }
 
-        this.players = new Player[playerList];
 
-        for (int i = 0; i < this.players.length; i++) {
+        for (int i = 0; i < playerList; i++) {
             String name = guiController.getPlayerName(i);
-            this.players[i] = new Player(name, startBalance, StartField);
+            players.add(new Player(name, startBalance, StartField, i));
         }
         guiController.addPlayers(players);
-        ChanceCard.CreateChanceCard();
     }
 
     private void FieldOutcome(int i) {
+        board.getSquare(players.get(i).getPosition()).Arrived(players.get(i));
 
-        switch (players[i].getPosition() + 1) {
 
-            case 1: // Our Start-Field
-                break;
-            case 2: // CHANCE FIELD
-                landOnChanceCard(i);
-                break;
-            case 3:
-                landOnField(i, -1);
-                break;
-            case 4:
-                landOnField(i, -1);
-                break;
-            case 5: // CHANCE FIELD
-                landOnChanceCard(i);
-                break;
-            case 6:
-                landOnField(i, -1);
-                break;
-            case 7://
-                landOnField(i, -2);
-                break;
-            case 8:
-                guiController.showMessage("JAIL VISIT");
-                break;
-            case 9:
-                landOnField(i, -2);
-                break;
-            case 10: // CHANCE FIELD
-                landOnChanceCard(i);
-                break;
-            case 11:
-                landOnField(i, -2);
-                break;
-            case 12:
-                landOnField(i, -2);
-                break;
-            case 13:
-                landOnField(i, -2);
-                break;
-            case 14:
-                landOnField(i, -3);
-                break;
-            case 15:
-                landOnField(i, -3);
-                break;
-            case 16:
-                landOnField(i, -3);
-                break;
-            case 17:
-                landOnField(i, -3);
-                break;
-            case 18: // CHANCE FIELD
-                landOnChanceCard(i);
-                break;
-            case 19:
-                landOnField(i, -4);
-                break;
-            case 20:
-                landOnField(i, -4);
-                break;
-            case 21:  // CHANCE FIELD
-                landOnChanceCard(i);
-                break;
-            case 22:
-                landOnField(i, -4);
-                break;
-            case 23:
-                landOnField(i, -5);
-                break;
-            case 24:
-                landOnField(i, -4);
-                break;
-            case 25:
-                guiController.showMessage("JAIL TIME");
-                guiController.RemoveCar(players[i].getPosition(), i);
-                players[i].setPosition(players[i].getPosition() - 16);
-                guiController.AddCar(players[i].getPosition(), i);
-                break;
-            case 26:
-                landOnChanceCard(i);
-                break;
-            case 27:
-                landOnField(i, -3);
-                break;
-            case 28:
-                landOnField(i, -1);
-                break;
-            case 29:
-                landOnField(i, -2);
-                break;
-            case 30:
-                landOnField(i, -2);
-                break;
-            case 31:
-                landOnField(i, -1);
-                break;
-            case 32:
-                landOnField(i, -1);
-                break;
-        }
     }
 
     private void landOnField(int i, int FieldOutcome) {
-        players[i].getAccount().setBalance(players[i].getAccount().getBalance() + FieldOutcome);
+        players.get(i).getAccount().setBalance(players.get(i).getAccount().getBalance() + FieldOutcome);
     }
     private void StartField(int i) {
-        players[i].getAccount().setBalance(players[i].getAccount().getBalance() + 2);
+        players.get(i).getAccount().setBalance(players.get(i).getAccount().getBalance() + 2);
     }
 
 
-    private void landOnChanceCard(int i) {
-
-        Chance ChanceCardOutcome = ChanceCard.getChanceCard();
-        landOnField(i, ChanceCardOutcome.getAmount());
-        guiController.RemoveCar(players[i].getPosition(), i);
-
-        if (ChanceCardOutcome.getValue() == 2 || ChanceCardOutcome.getValue() == 1 || ChanceCardOutcome.getValue() == 5) {
-            players[i].setPosition(ChanceCardOutcome.getField());
-        } else {
-            players[i].setPosition(players[i].getPosition() + ChanceCardOutcome.getField());
-        }
-        if (ChanceCardOutcome.getValue() == 2 || ChanceCardOutcome.getValue() == 3) {
-            FieldOutcome(i);
-        }
-
-        guiController.AddCar(players[i].getPosition(), i);
-        guiController.showMessage(ChanceCardOutcome.getTextMessage());
-    }
 }

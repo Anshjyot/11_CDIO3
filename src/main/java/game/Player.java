@@ -5,11 +5,13 @@ public class Player {
     private Account account;
     private String PlayerName;
     private int currentposition;
+    int index;
 
-    public Player(String PlayerName, int balance, int Startfield) {
+    public Player(String PlayerName, int balance, int Startfield, int index) {
         this.setPlayerName(PlayerName);
         this.setAccount(new Account(balance));
         this.setPosition(Startfield);
+        this.index = index;
     }
 
     public Player() { }
@@ -32,5 +34,9 @@ public class Player {
     }
     public int getPosition() {
         return currentposition;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }
