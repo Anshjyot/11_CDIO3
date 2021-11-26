@@ -5,6 +5,7 @@ import game.Board;
 import game.Dice;
 import game.Player;
 
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
@@ -42,8 +43,14 @@ public class GUIController {
 
     public void addPlayers(Player[] players) {
         this.guiPlayers = new GUI_Player[players.length];
+        GUI_Car[] car_choices = {
+                new GUI_Car(Color.PINK, Color.RED, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.HORIZONTAL_GRADIANT),
+                new GUI_Car(Color.BLACK, Color.WHITE, GUI_Car.Type.UFO, GUI_Car.Pattern.CHECKERED),
+                new GUI_Car(Color.BLUE, Color.WHITE, GUI_Car.Type.RACECAR, GUI_Car.Pattern.DOTTED),
+                new GUI_Car(Color.YELLOW, Color.PINK, GUI_Car.Type.CAR, GUI_Car.Pattern.ZEBRA)
+        };
         for (int i = 0; i < players.length; i++) {
-            this.guiPlayers[i] = new GUI_Player(players[i].getPlayerName(), players[i].getAccount().getBalance());
+            this.guiPlayers[i] = new GUI_Player(players[i].getPlayerName(), players[i].getAccount().getBalance(), car_choices[i]);
             AddCar(0, i);
             gui.addPlayer(this.guiPlayers[i]);
         }
