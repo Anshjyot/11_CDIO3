@@ -30,7 +30,7 @@ public class JuniorMonopolyController {
             for (int i = 0; i < players.length; i++) {
                 int faceValue = guiController.setDice();
 
-                guiController.AddCar(players[i].getPosition(), i);
+                guiController.RemoveCar(players[i].getPosition(), i);
 
                 if (players[i].getPosition() + faceValue > 31) {
                     StartField(i);

@@ -11,7 +11,7 @@ public class Dice {
     }
 
     public void ThrowDice() {
-        dice = (int) (Math.random() * dice) + 1;
+        dice = (int) (Math.random() * 6) + 1;
     }
 
     public int getDice() {
