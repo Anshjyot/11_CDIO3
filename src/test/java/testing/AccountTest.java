@@ -23,7 +23,6 @@ public class AccountTest {
         int actualResult = amount.getBalance();
         assertEquals(expectingResult, actualResult);
     }
-
     /**
      * Testing the methodArrived & Bank, the amount/balance cant be negative - no matter what the withdrawal is
      */

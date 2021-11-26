@@ -2,7 +2,7 @@ package game;
 
 import GUI.GUIController;
 
-public class JailSquare extends Square {
+public class JailSquare extends Square { // This class extends the Square class and creates JailSquare.
     private GUIController controller;
     public JailSquare(String fieldName, GUIController controller) {
         super(fieldName);
@@ -10,7 +10,7 @@ public class JailSquare extends Square {
     }
 
     @Override
-    public void Arrived(Player p) {
+    public void Arrived(Player p) { // This field places the player back to VisitJailSquare field.
         controller.showMessage("JAIL TIME");
         controller.RemoveCar(p.getPosition(), p.getIndex());
         p.setPosition(p.getPosition() - 16);

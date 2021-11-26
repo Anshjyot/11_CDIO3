@@ -4,7 +4,7 @@ import GUI.GUIController;
 
 import java.util.List;
 
-public class ChanceSquare extends Square {
+public class ChanceSquare extends Square { // This class extends the Square class and creates the ChanceCard
 
     // int outcome;
     private List<Player> players;
@@ -17,19 +17,18 @@ public class ChanceSquare extends Square {
     }
 
     @Override
-    public void Arrived(Player p) {
+    public void Arrived(Player p) { // Creates different outcomes when landing on the Chance-fields
 
         super.Arrived(p);
         int cards = (int) (Math.random()*4);
         switch (cards){
-            case 0: p.getAccount().setBalance(p.getAccount().getBalance()-2); // "You ate to much candy, pay $2 to the bank"
+            case 0: p.getAccount().setBalance(p.getAccount().getBalance()-2);
                 controller.showMessage("You ate to much candy, pay $2 to the bank");
                 break;
             case 1: p.getAccount().setBalance(p.getAccount().getBalance()+2);
                 controller.showMessage("You have made your homework");
-                //laver en lille fejl med at det er den modsatte spiller som modtager de $2.
                 break;
-            case 2: p.getAccount().setBalance(p.getAccount().getBalance()+2); //+ ryk frem til start
+            case 2: p.getAccount().setBalance(p.getAccount().getBalance()+2);
                 controller.showMessage("Go to Start");
                 controller.RemoveCar(p.getPosition(),p.getIndex());
                 p.setPosition(0);
@@ -43,7 +42,7 @@ public class ChanceSquare extends Square {
                         otherPlayer.getAccount().setBalance(otherPlayer.getAccount().getBalance()-1);
                     }
                 }
-                p.getAccount().setBalance(p.getAccount().getBalance() + sum);//modtager 1 fra alle spillere 1-3
+                p.getAccount().setBalance(p.getAccount().getBalance() + sum);
                 controller.showMessage("Get $1 from every player");
                 break;
             default: System.out.println(cards);
@@ -51,11 +50,5 @@ public class ChanceSquare extends Square {
 
 
     }
-//   int C1 =adjustbalance +2
-    //switch statement
-
-    // lige nu tager den et specifikt chancekort på et bestemt felt.
-
-
 
 }

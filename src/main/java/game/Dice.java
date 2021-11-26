@@ -1,11 +1,7 @@
 package game;
 
-public class Dice {
+public class Dice { // Creates a dice throw method for one dice only
     private int dice;
-
-    public Dice(int dice) {
-        this.dice = dice;
-    }
 
     public Dice() {
     }

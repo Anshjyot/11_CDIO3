@@ -22,7 +22,7 @@ public class Board {
 
     }
 
-    public GUI_Field[] BoardCreator() {
+    public GUI_Field[] BoardCreator() {  // This constructor creates our GUI Board/Fields
 
         fields[0] = new GUI_Start("START", "You got the Tower, now make it Shower!", "+82",Color.getHSBColor(153,232,179), Color.PINK);
         fields[1] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
@@ -67,7 +67,7 @@ public class Board {
         return fields;
     }
 
-    public void CreateStreets(List<Player> players, GUIController controller) {
+    public void CreateStreets(List<Player> players, GUIController controller) { // This constructor is used to decide the buyprice and rentprice throughtout the game for each fields
         squares[0] = new StartSquare("START");
         squares[1] = new ChanceSquare("?", players, controller);
         squares[2] = new OwnedProperty("Balloon Stand", 2, 1,controller);

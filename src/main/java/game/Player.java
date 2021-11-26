@@ -1,6 +1,6 @@
 package game;
 
-public class Player {
+public class Player { // This class creates the player which will be used in the GUI, a player with an account.
 
     private Account account;
     private String PlayerName;
@@ -22,6 +22,7 @@ public class Player {
     public String getPlayerName() {
         return PlayerName;
     }
+
     public void setAccount(Account account) {
         this.account = account;
     }

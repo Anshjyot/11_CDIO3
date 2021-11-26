@@ -2,7 +2,7 @@ package game;
 
 import GUI.GUIController;
 
-public class OwnedProperty extends Square {
+public class OwnedProperty extends Square { // This class extends the Square class
 
     public OwnedProperty(String fieldname, int price, int rent, GUIController controller) {
         super(fieldname);
@@ -17,7 +17,7 @@ public class OwnedProperty extends Square {
     GUIController controller;
 
     @Override
-    public void Arrived(Player player) {
+    public void Arrived(Player player) { // This class creates the ownership for the fields, you can buy and rent fields.
         if (owner == null){
             player.getAccount().setBalance(player.getAccount().getBalance() - price);
             owner = player;

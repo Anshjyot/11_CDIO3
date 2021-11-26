@@ -1,6 +1,6 @@
 package game;
 
-public class Account {
+public class Account { // Getters and setters for Account class
 
 
     private int balance;

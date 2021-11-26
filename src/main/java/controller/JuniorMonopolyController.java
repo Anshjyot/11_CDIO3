@@ -17,7 +17,7 @@ public class JuniorMonopolyController {
     Board board;
 
 
-    public void playGame() {
+    public void playGame() { // These methods below are essential for the game to run, thus Main will run playGame()
         board = new Board(players, guiController);
         this.guiController.initializeBoard(board);
         NumberOfPlayers();
@@ -31,7 +31,8 @@ public class JuniorMonopolyController {
 
                 guiController.RemoveCar(players.get(i).getPosition(), i);
 
-                if (players.get(i).getPosition() + faceValue > 31) {
+                if (players.get(i).getPosition() + faceValue > 31) { // When you exceed the last field, you get to a new round
+
                     StartField(i);
                     players.get(i).setPosition(players.get(i).getPosition() + faceValue - 32);
 
@@ -40,18 +41,17 @@ public class JuniorMonopolyController {
                 }
 
                 guiController.AddCar(players.get(i).getPosition(), i);
-                FieldOutcome(i);
+                FieldOutcome(i); // The field outcome for the specific field
 
                 for (Player player: players) {
                     guiController.setNewBalance(player.getIndex(), player.getAccount().getBalance());
                 }
-
-                Winner(i);
+                Winner(i); // Checking if the winner is found.
             }
         }
     }
 
-    private void Winner(int player) {
+    private void Winner(int player) { // The last person to have a balance >0 wins
         int loserBalance = 0;
         List<String> winnerName = new ArrayList<String>();
 
@@ -65,13 +65,13 @@ public class JuniorMonopolyController {
 
             if (winnerName.size() == 1) {
                 guiController.getWinnerMessage(winnerName);
-                System.exit(0);
+                System.exit(0); // Games finishes when the winner is announced
             }
 
         }
     }
 
-    private void NumberOfPlayers() {
+    private void NumberOfPlayers() { // Start money declaration
         int playerList = guiController.getPlayerList();
 
         if (playerList == 2) {
@@ -89,19 +89,16 @@ public class JuniorMonopolyController {
             String name = guiController.getPlayerName(i);
             players.add(new Player(name, startBalance, StartField, i));
         }
-        guiController.addPlayers(players);
+        guiController.addPlayers(players); // Adds players to the GUI
     }
 
-    private void FieldOutcome(int i) {
+    private void FieldOutcome(int i) { // The field outcome method
         board.getSquare(players.get(i).getPosition()).Arrived(players.get(i));
 
 
     }
 
-    private void landOnField(int i, int FieldOutcome) {
-        players.get(i).getAccount().setBalance(players.get(i).getAccount().getBalance() + FieldOutcome);
-    }
-    private void StartField(int i) {
+    private void StartField(int i) { // You get $2 when you pass the Start-field
         players.get(i).getAccount().setBalance(players.get(i).getAccount().getBalance() + 2);
     }
 

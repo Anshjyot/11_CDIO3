@@ -4,6 +4,10 @@ import game.Player;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Testing the setPosition method
+ */
+
 public class PlayerPositionTest {
 
     Player player = new Player();
@@ -16,6 +20,6 @@ public class PlayerPositionTest {
             System.out.println("SetPosition virker korrekt");
 
 
-    }
+        }
 
-}
+    }
