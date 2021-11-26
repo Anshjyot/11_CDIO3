@@ -1,54 +1,66 @@
 package game;
 
-import java.util.List;
+import java.util.Random;
 
-public class Chance extends Square {
+public class Chance {
+    private int field = 0;
+    private int value = 0;
+    private String text = "";
+    private int amount = 0;
 
-   // int outcome;
-    private List<Player> players;
-    private GUIController controller;
 
-    public Chance (String fieldName, List<Player> players, GUIController controller){
-        super(fieldName);
-        this.controller = controller;
-        this.players = players;
+    public Chance() {
     }
 
-    @Override
-    public void Arrived(Player p) {
-
-    super.Arrived(p);
-        int cards = (int) (Math.random()*4+1);
-        switch (cards){
-            case 0: p.getBank().add(-2); // "You ate to much candy, pay $2 to the bank"
-                Language.Arrived(fieldName, "You ate to much candy, pay $2 to the bank", -2, p.getBank());
-                break;
-            case 1: p.getBank().add(+2);
-                Language.Arrived(fieldName, "You have made your homework", +2, p.getBank());
-                //laver en lille fejl med at det er den modsatte spiller som modtager de $2. 
-                break;
-            case 2: p.getBank().add (+2); //+ ryk frem til start
-                Language.Arrived(fieldName,"go to Start",+2, p.getBank());
-
-                controller.MoveCar(p,0);
-                break;
-            case 3:
-                int sum = 0;
-                for (Player otherPlayer : players) {
-                    if(otherPlayer != p) {
-                        sum += 1;
-                        otherPlayer.getBank().add(-1);
-                    }
-                }
-                p.getBank().add (sum);//modtager 1 fra alle spillere 1-3
-                Language.Arrived(fieldName,"get $1 from every player",+1 , p.getBank());
-                break;
-        }
+    public Chance(String text, int amount, int field, int value) {
+        this.setTextMessage(text);
+        this.setAmount(amount);
+        this.setField(field);
+        this.setValue(value);
     }
-//   int C1 =adjustbalance +2
-    //switch statement
 
-    // lige nu tager den et specifikt chancekort på et bestemt felt.
+    private Chance[] chance = new Chance[5];
+
+    public void CreateChanceCard() {
+        chance[0] = new Chance("Go to Start and receive $2", 2, 0, 1);
+        chance[1] = new Chance("You ate to much candy, pay $2 to the bank", -2, 0, 4);
+        chance[2] = new Chance("You will receive $1", 1, 0, 6);
+        chance[3] = new Chance("Move 5 fields ahead", 0, 5, 2);
+        chance[4] = new Chance("You have made your homework. You will receive $2", 2, 0, 7);
+    }
+
+    public Chance getChanceCard() {
+        Random random = new Random();
+        int i = random.nextInt(chance.length);
+        return chance[i];
+    }
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setField(int field) {
+        this.field = field;
+    }
+    public int getField() {
+        return field;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+    public int getValue() {
+        return value;
+    }
+
+    public void setTextMessage(String text) {
+        this.text = text;
+    }
+    public String getTextMessage() {
+        return text;
+    }
 
 
 

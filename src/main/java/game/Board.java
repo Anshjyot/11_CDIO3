@@ -1,45 +1,67 @@
 package game;
 
-import java.util.List;
+import java.awt.Color;
 
-public class Board { // Creating an Array with every property
+import gui_fields.*;
+import gui_main.GUI;
 
-    Square [] properties = new Square[32];
+public class Board {
 
-    public Board(List<Player> players, GUIController controller)
-    {
-        properties[0] = new Properties(+2, "You got the Tower, now make it Shower!", "");
-        properties[1] = new Chance( "Chance", players, controller);
-        properties[2] = new Properties(+1, "You got the Tower, now make it Shower!", "");
-        properties[3] = new Properties(+1, "You fell in the Crater, Sorry, See you later.", "");
-        properties[4] = new Chance( "Chance", players, controller);
-        properties[5] = new Properties(-20, "You are stranded in the Cold Desert, now lost 20 in the Blizzard.", "");
-        properties[6] = new Properties(+180, "You just arrived at Walled City, Splash some cash, go get Litty.", "");
-        properties[7] = new Properties(0, "You arrived at the Monastery, nothing happened, its not that Scary.", "");
-        properties[8] = new Properties(-70, "You saw the Black Cave, go buy a plaster, you cut yourself when trying to Shave.", "");
-        properties[9] = new Chance( "Chance", players, controller);
-        properties[10] = new Properties(-80, "You got to the werewolf wall, you heard a haul, you made a withdrawal, try again ;)!", "");
-        properties[11] = new Properties(-50, "Oh Shit, You fell in the Pit.", "");
-        properties[12] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[13] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[14] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[15] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[16] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[17] = new Chance( "Chance", players, controller);
-        properties[18] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[19] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[20] = new Chance( "Chance", players, controller);
-        properties[21] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[22] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[23] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[24] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[25] = new Chance("Chance", players, controller);
-        properties[26] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[27] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[28] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[29] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[30] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
-        properties[31] = new Properties(+650, "Jackpot, You hit the Goldmine, now its Showtime.", "");
+    GUI_Field[] fields = new GUI_Field[32];
+    GUI board;
+
+    public GUI_Field getField(int i) {
+        return fields[i];
+
     }
+
+    public GUI_Field[] BoardCreator() {
+
+        fields[0] = new GUI_Start("START", "You got the Tower, now make it Shower!", "+82",Color.getHSBColor(153,232,179), Color.PINK);
+        fields[1] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[2] = new GUI_Street("Balloon Stand","Price: $1","", "+82",Color.magenta, Color.BLACK);
+        fields[3] = new GUI_Street("Cotton Candy", "Price: $1","", "+82",Color.magenta, Color.BLACK);
+        fields[4] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[5] = new GUI_Street("Yellow Line Railroad", "Price: $1","", "+82",Color.WHITE, Color.ORANGE);
+        fields[6] = new GUI_Street("Puppet Show", "Price: $1","", "+82",Color.cyan, Color.BLACK);
+        fields[7] = new GUI_Street("Magic Show", "Price: $2","", "+82",Color.cyan, Color.black);
+
+        fields[8] = new GUI_Jail();
+        fields[8].setSubText("JAIL VISIT");
+        fields[8].setDescription("Jail visit");
+
+        fields[9] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[10] = new GUI_Street("Rest Rooms", "Price: $2","", "+82",Color.BLACK, Color.WHITE);
+        fields[11] = new GUI_Street("Merry-Go-Round", "Price: $2","", "+82",Color.PINK, Color.BLACK);
+        fields[12] = new GUI_Street("Paddle Boats", "Price: $2","", "+82",Color.PINK, Color.BLACK);
+        fields[13] = new GUI_Street("Green Line Railroad", "Price: $2","", "+82",Color.WHITE, Color.GREEN);
+        fields[14] = new GUI_Street("Water Slide", "Price: $3","", "+82",Color.orange, Color.BLACK);
+        fields[15] = new GUI_Street("Miniature Golf", "Price: $3", "", "+82",Color.orange, Color.BLACK);
+        fields[16] = new GUI_Street("Uncle Pennybag's Loose Change", "Price: $4","", "+82",Color.white, Color.BLACK);
+        fields[17] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[18] = new GUI_Street("Video Arcade", "Price: $4","", "+82",Color.RED, Color.BLACK);
+        fields[19] = new GUI_Street("Haunted House", "Price: $4","", "+82",Color.RED, Color.BLACK);
+        fields[20] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[21] = new GUI_Street("Blue Line Railroad", "Price: $4","", "+82",Color.WHITE, Color.BLUE);
+        fields[22] = new GUI_Street("Helicopter Ride", "Price: $5!","", "+82",Color.YELLOW, Color.BLACK);
+        fields[23] = new GUI_Street("Pony Ride","Price: $4","", "+82",Color.YELLOW, Color.BLACK);
+
+        fields[24] = new GUI_Jail();
+        fields[24].setSubText("JAIL");
+        fields[24].setDescription("Locked up");
+
+        fields[25] = new GUI_Chance("?", "","",Color.BLACK, Color.YELLOW);
+        fields[26] = new GUI_Street("Go to Rest rooms","Price: $3","You got the Tower, now make it Shower!","+82",Color.WHITE, Color.BLACK);
+        fields[27] = new GUI_Street("Bumper Cars","Price: $1","", "+82",Color.GREEN, Color.BLACK);
+        fields[28] = new GUI_Street("Ferris Wheel", "Price: $2","", "+82",Color.GREEN, Color.BLACK);
+        fields[29] = new GUI_Street("Red Line Railroad", "Price: $2","", "+82",Color.WHITE, Color.RED);
+        fields[30] = new GUI_Street("Loop The Loop", "Price: $1","", "+82",Color.BLUE, Color.BLACK);
+        fields[31] = new GUI_Street("Roller Coaster","Price: $1","", "+82",Color.BLUE, Color.BLACK);
+        board = new GUI(fields, Color.GRAY);
+        return fields;
+
+    }
+
+
 
 }

@@ -1,31 +1,36 @@
 package game;
 
-import gui_fields.GUI_Player;
-
 public class Player {
 
-    String playerName;
-    GUI_Player guiplayer;
-    Account bank;
-    int currentField = 0;
+    private Account account;
+    private String PlayerName;
+    private int currentposition;
 
-    public Player(String playerName) {// Create constructor, returns nothing
-        this.playerName= playerName;
-        bank  = new Account(35);
+    public Player(String PlayerName, int balance, int Startfield) {
+        this.setPlayerName(PlayerName);
+        this.setAccount(new Account(balance));
+        this.setPosition(Startfield);
     }
 
-    public String setPlayerName(String PlayerName) {// This will be used to get the PlayerName
-        this.playerName = PlayerName;
+    public Player() { }
+
+    public void setPlayerName(String PlayerName) {
+        this.PlayerName = PlayerName;
+    }
+    public String getPlayerName() {
         return PlayerName;
     }
-    //Used to get Playername
-    public String toString (){
-        return playerName;
+    public void setAccount(Account account) {
+        this.account = account;
     }
-    // Used to get bank value
-    public Account getBank(){
-
-        return bank;
+    public Account getAccount() {
+        return account;
     }
 
+    public void setPosition(int currentposition) {
+        this.currentposition = currentposition;
+    }
+    public int getPosition() {
+        return currentposition;
+    }
 }
