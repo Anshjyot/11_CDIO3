@@ -4,8 +4,7 @@ import java.util.List;
 import game.Board;
 import game.Dice;
 import game.Player;
-import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
+
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
@@ -19,7 +18,7 @@ public class GUIController {
 
     public GUIController(Board board) {
         this.board = board;
-        this.gui = new GUI(board.BoardCreator());
+        this.gui = new GUI(board.BoardCreator(),Color.GRAY); // CHANGE BOARD COLOR
     }
 
     public int getPlayerList() {

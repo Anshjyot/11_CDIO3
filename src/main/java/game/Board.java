@@ -6,7 +6,6 @@ import gui_fields.*;
 import gui_main.GUI;
 
 public class Board {
-
     GUI_Field[] fields = new GUI_Field[32];
     GUI board;
 
@@ -57,9 +56,7 @@ public class Board {
         fields[29] = new GUI_Street("Red Line Railroad", "Price: $2","", "+82",Color.WHITE, Color.RED);
         fields[30] = new GUI_Street("Loop The Loop", "Price: $1","", "+82",Color.BLUE, Color.BLACK);
         fields[31] = new GUI_Street("Roller Coaster","Price: $1","", "+82",Color.BLUE, Color.BLACK);
-        board = new GUI(fields, Color.GRAY);
         return fields;
-
     }
 
 
