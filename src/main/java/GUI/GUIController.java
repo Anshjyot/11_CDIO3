@@ -72,6 +72,7 @@ public class GUIController {
 
     public void getWinnerMessage(List<String> message) {
         gui.showMessage(message.toString() + " WON!!");
+        System.out.println(message.toString() + "WON!!");
     } // Winner message
 
     public void showMessage(String message) {

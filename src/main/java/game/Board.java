@@ -82,14 +82,14 @@ public class Board {
         squares[9] = new ChanceSquare("?", players, controller);
         squares[10] = new OwnedProperty("Rest Rooms", 3, 1,controller);
         squares[11] = new OwnedProperty("Merry-Go-Round", 2, 1,controller);
-        squares[12] = new OwnedProperty("Paddle Boats",2, 1,controller);
+        squares[12] = new OwnedProperty("Paddle Boats",2, 2,controller);
         squares[13] = new OwnedProperty("Green Line Railroad", 1, 1,controller);
         squares[14] = new OwnedProperty("Water Slide", 3, 1,controller);
-        squares[15] = new OwnedProperty("Miniature Golf",3, 1,controller);
+        squares[15] = new OwnedProperty("Miniature Golf",3, 2,controller);
         squares[16] = new OwnedProperty("Pennybag", 1, 1,controller);
         squares[17] = new ChanceSquare("?", players, controller);
         squares[18] = new OwnedProperty("Video Arcade", 3, 1,controller);
-        squares[19] = new OwnedProperty("Haunted House", 3, 1,controller);
+        squares[19] = new OwnedProperty("Haunted House", 3, 2,controller);
         squares[20] = new ChanceSquare("?", players, controller);
         squares[21] = new OwnedProperty("Blue Line Railroad", 3, 1,controller);
         squares[22] = new OwnedProperty("Helicopter Ride", 4, 1,controller);
@@ -100,10 +100,10 @@ public class Board {
         squares[25] = new ChanceSquare("?", players, controller);
         squares[26] = new OwnedProperty("Go to Rest rooms", 3, 1,controller);
         squares[27] = new OwnedProperty("Bumper Cars", 4, 1,controller);
-        squares[28] = new OwnedProperty("Ferris Wheel", 4, 1,controller);
+        squares[28] = new OwnedProperty("Ferris Wheel", 4, 2,controller);
         squares[29] = new OwnedProperty("Red Line Railroad", 1, 1,controller);
-        squares[30] = new OwnedProperty("Loop The Loop", 5, 1,controller);
-        squares[31] = new OwnedProperty("Roller Coaster", 5, 1,controller);
+        squares[30] = new OwnedProperty("Loop The Loop", 5, 2,controller);
+        squares[31] = new OwnedProperty("Roller Coaster", 5, 2,controller);
 
     }
 }
